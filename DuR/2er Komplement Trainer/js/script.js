@@ -76,6 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
         questionElement.parentElement.classList.add('hidden');
         resultElement.classList.remove('hidden');
         scoreElement.textContent = `Sie haben ${wrongCount} falsche Antworten und ${correctCount} richtige Antworten gegeben.`;
+        answerElement.disabled = true;
+        submitButton.disabled = true;
     };
 
     const restartQuiz = () => {
@@ -89,6 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
         questionElement.parentElement.classList.remove('hidden');
         errorStats = {};
         errorStatsElement.innerHTML = '';
+        answerElement.disabled = false;
+        submitButton.disabled = false;
         generateQuestion();
         startTimer();
     };
