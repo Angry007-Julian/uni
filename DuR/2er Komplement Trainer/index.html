@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2er-Komplement Quiz</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>2er-Komplement Quiz</h1>
+        <div id="question-area">
+            <p id="question">Frage wird hier angezeigt</p>
+            <input type="text" id="answer" class="input-field" placeholder="Geben Sie Ihre Antwort ein">
+            <button id="submit" class="submit-button">Antwort einreichen</button>
+        </div>
+        <div id="stats" class="stats">
+            <p>Falsche Antworten: <span id="wrong-count">0</span></p>
+            <p>Verbleibende Zeit: <span id="timer">180</span> Sekunden</p>
+            <ul id="error-stats"></ul>
+        </div>
+        <div id="result" class="hidden">
+            <h2>Auswertung</h2>
+            <p id="score"></p>
+            <button id="restart" class="submit-button">Nochmal spielen</button>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
