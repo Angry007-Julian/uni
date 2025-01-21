@@ -58,11 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const startTimer = () => {
+        if (timerInterval) {
+            clearInterval(timerInterval);
+        }
         timerInterval = setInterval(() => {
-            timeLeft--;
-            timerElement.textContent = timeLeft;
-
-            if (timeLeft <= 0) {
+            if (timeLeft > 0) {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+            } else {
                 clearInterval(timerInterval);
                 showResult();
             }
