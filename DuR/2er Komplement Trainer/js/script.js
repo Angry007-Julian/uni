@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreElement = document.getElementById('score');
     const restartButton = document.getElementById('restart');
     const errorStatsElement = document.getElementById('error-stats');
+    const correctCountElement = document.getElementById('correct-count');
 
     let wrongCount = 0;
+    let correctCount = 0;
     let timeLeft = 180;
     let currentNumber;
     let timerInterval;
@@ -30,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (userAnswer === correctAnswer) {
             correctSound.play();
+            correctCount++;
+            correctCountElement.textContent = correctCount;
             generateQuestion();
             answerElement.value = '';
         } else {
@@ -68,13 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const showResult = () => {
         questionElement.parentElement.classList.add('hidden');
         resultElement.classList.remove('hidden');
-        scoreElement.textContent = `Sie haben ${wrongCount} falsche Antworten gegeben.`;
+        scoreElement.textContent = `Sie haben ${wrongCount} falsche Antworten und ${correctCount} richtige Antworten gegeben.`;
     };
 
     const restartQuiz = () => {
         wrongCount = 0;
+        correctCount = 0;
         timeLeft = 180;
         wrongCountElement.textContent = wrongCount;
+        correctCountElement.textContent = correctCount;
         timerElement.textContent = timeLeft;
         resultElement.classList.add('hidden');
         questionElement.parentElement.classList.remove('hidden');
